@@ -1,0 +1,28 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/estacionamento
+        username: postgres
+        password: 3636
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate.format_sql: true
+            hibernate:
+                jdbc:
+                    time_zone: UTC
+    jackson:
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+        deserialization:
+            ADJUST_DATES_TO_CONTEXT_TIME_ZONE: true
+
+
+
+logging:
+    level:
+        org:
+            hibernate:
+                type: trace
+
