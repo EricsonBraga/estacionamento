@@ -1,4 +1,7 @@
-# Estacionamento (API Java + Spring)
+# API Estacionamento
+#### Java
+#### Spring
+#### PostgreSQL
 
 ## Definição:
 Esta é uma API que faz o controle de um estacionamento: 
@@ -9,13 +12,31 @@ Esta é uma API que faz o controle de um estacionamento:
 
 ## Funcionalidades:
 ### Clientes:
-* Cadastrar
+- Cadastrar
 
-* Buscar
+- Buscar
+    - buscar por nome
+    - buscar por id
+    - buscar pela placa
+    - buscar pelo primeiro nome
+    - listar histórico de cliente
+    - listar todos os clientes
+- Editar
+    - atualizar nome e placa
+    - atualizar nome
+    - atualizar placa
 
-* Editar
+- Deletar
 
-* Deletar
-
+### Vagas:
+- Criar
+    - insere um cliente em uma vaga e registra horário de entrada 
+- Atualizar
+    - atualiza o horário de saída e calcula valor a ser pago
+- Buscar
+    - busca uma vaga por id
+    - busca histórico de vagas de um cliente
+    - lista todo o histórico de vagas criadas
+    - retorna a quantidade de vagas disponíveis
 
 
