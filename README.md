@@ -1,6 +1,21 @@
-API para Controle de Estacionamento
+# Estacionamento (API Java + Spring)
 
-Definição:
+## Definição:
+Esta é uma API que faz o controle de um estacionamento: 
+<p>Armazena dados de clientes. 
+<p>Registra horários de entrada e de saída.
+<p>Calcula o valor a ser pago de acordo com a permanência.
+<p>Retorna o número de vagas disponíveis no momento.
 
-Link Postman:
-https://documenter.getpostman.com/view/27254715/2s9Y5ZwhJF
+## Funcionalidades:
+### Clientes:
+* Cadastrar
+
+* Buscar
+
+* Editar
+
+* Deletar
+
+
+
