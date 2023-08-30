@@ -22,6 +22,9 @@ public class VagaService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    /* contador para fazer a contagem de vagas disponíveis.
+    Ele indica o número de vagas que estão ocupadas.
+     É incrementado quando se cria uma vaga e decrementado quando se atualiza. */
     private int contadorVagas=0;
 
 
@@ -41,6 +44,15 @@ public class VagaService {
         return vagaRepository.findAll();
     }
 
+    /* método update salva o horário de saída,
+    faz o cálculo do tempo de permanencia do cliente
+    e calcula o valor a ser pago
+
+    Duration calcula a diferença entre os horários
+
+    Um carro entra às 10:20 e sai às 11:25, então ele já está usando a 2ª hora
+    de permanencia. A diferença entre as variáveis de hora será igual a 1.
+    Por isso, é necessário levar em conta a diferença dos minutos. */
     public Vaga update(long id){
         double valor;
         Vaga vaga = vagaRepository.findById(id).get();
@@ -49,11 +61,13 @@ public class VagaService {
         Duration duration = Duration.between(vaga.getEntrada(), vaga.getSaida());
         long horas = duration.toHours();
         long minutos = duration.toMinutes();
-        if(minutos > 0){
+
+        //condições para verificar se a contagem  de minutos completou 1 hora
+        if(minutos > 0){ //ultrapassou os 60 minutos
             horas = horas+1;
             valor = vaga.getValorHora()*horas;
             vaga.setValorTotal(valor);
-        }else if(minutos< 0){
+        }else if(minutos< 0){ //não se passaram 60 minutos
             horas = horas-1;
             valor = vaga.getValorHora()*horas;
             vaga.setValorTotal(valor);
@@ -71,6 +85,7 @@ public class VagaService {
         return vagaRepository.findById(id).get();
     }
 
+    //Faz o cálculo do número de vagas disponíveis utilizando o contador.
     public String vagasDisponiveis(){
         String mensagem;
         int totalVagas = 10;
