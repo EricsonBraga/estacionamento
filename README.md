@@ -40,6 +40,11 @@ Esta é uma API que faz o controle de um estacionamento:
     - lista todo o histórico de vagas criadas
     - retorna a quantidade de vagas disponíveis
 
+## Observação:
+O Spring estava criando minhas variáveis de tempo (LocalTime) como timestamp no Postgres.<br>
+Precisei fazer a alteração manual no sgbd de timestamp para time, <br>
+porque estava dando erro na hora de inserir os dados.
+
 ## Link Postman:
 
 https://documenter.getpostman.com/view/27254715/2s9Y5ZwhJF
